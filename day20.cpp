@@ -12,7 +12,7 @@ int main() {
         cin >> n >> k;
 
         vector<int> masses(n);
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++){
             cin >> masses[i];
         }
 
@@ -26,13 +26,11 @@ int main() {
                 maxPairs++;
                 freq[complement]--;
             } 
-            else {
+            else{
                 freq[masses[i]]++;
             }
         }
-
         cout << maxPairs << endl;
     }
-
     return 0;
 }
