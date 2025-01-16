@@ -23,7 +23,9 @@ bool canEscape(const vector<vector<int>>& grid, int n) {
     visited[0][0] = true;
 
     while (!q.empty()) {
-        auto [x, y] = q.front();
+        pair<int, int> current = q.front();
+        int x = current.first;
+        int y = current.second;
         q.pop();
 
         // If we reach the bottom-right corner, return true
@@ -32,7 +34,10 @@ bool canEscape(const vector<vector<int>>& grid, int n) {
         }
 
         // Explore all possible directions
-        for (auto [dx, dy] : directions) {
+        for (const pair<int, int>& direction : directions) {
+            int dx = direction.first;
+            int dy = direction.second;
+
             int newX = x + dx;
             int newY = y + dy;
 
