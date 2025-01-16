@@ -4,9 +4,15 @@
 
 using namespace std;
 
+// Function to check if there's a path from top-left to bottom-right
 bool canEscape(const vector<vector<int>>& grid, int n) {
     // Directions for moving up, down, left, and right
     vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
+    // Edge case: If the starting or ending cell is blocked
+    if (grid[0][0] == 1 || grid[n - 1][n - 1] == 1) {
+        return false;
+    }
 
     // Queue for BFS
     queue<pair<int, int>> q;
@@ -44,12 +50,13 @@ bool canEscape(const vector<vector<int>>& grid, int n) {
 
 int main() {
     int t;
-    cin >> t;
+    cin >> t; // Number of test cases
 
     while (t--) {
         int n;
-        cin >> n;
+        cin >> n; // Size of the grid
 
+        // Read the grid
         vector<vector<int>> grid(n, vector<int>(n));
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
@@ -57,6 +64,7 @@ int main() {
             }
         }
 
+        // Check if escape is possible and print the result
         if (canEscape(grid, n)) {
             cout << "YES" << endl;
         } else {
