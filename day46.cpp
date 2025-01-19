@@ -6,7 +6,7 @@ using namespace std;
 int main() {
     int t;
     cin >> t; // Number of test cases
-
+    
     while (t--) {
         int n;
         cin >> n; // Number of permits
@@ -24,7 +24,8 @@ int main() {
 
         if (index < n && permits[index] == target) {
             cout << index << endl; // Output the index if found
-        } else {
+        } 
+        else {
             cout << -1 << endl; // Output -1 if not found
         }
     }
