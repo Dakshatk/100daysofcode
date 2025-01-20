@@ -9,9 +9,11 @@ int binarySearch(const vector<int>& fares, int query) {
         int mid = left + (right - left) / 2; // Avoid overflow
         if (fares[mid] == query) {
             return mid; // Found the fare, return the index
-        } else if (fares[mid] < query) {
+        } 
+        else if (fares[mid] < query) {
             left = mid + 1; // Search in the right half
-        } else {
+        } 
+        else {
             right = mid - 1; // Search in the left half
         }
     }
