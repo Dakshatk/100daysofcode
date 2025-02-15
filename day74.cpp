@@ -101,5 +101,5 @@ int main() {
         cout<<ans<<endl;
         j++;
     }
-    return 0;
+    return 0;//program ends
 }
