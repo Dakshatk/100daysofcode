@@ -14,19 +14,18 @@ int minEffortToConnect(vector<vector<int>>& points) {
     vector<bool> inMST(n, false);
     priority_queue<pii, vector<pii>, greater<pii>> pq;
     pq.push({0, 0}); // {cost, index}
-    int totalEffort = 0;
-    int edgesUsed = 0;
+    int totalEffort = 0, edgesUsed = 0;
     
     while (!pq.empty() && edgesUsed < n) {
         auto [cost, u] = pq.top();
         pq.pop();
-        
+
         if (inMST[u]) continue;
-        
+
         inMST[u] = true;
         totalEffort += cost;
         edgesUsed++;
-        
+
         for (int v = 0; v < n; v++) {
             if (!inMST[v]) {
                 int dist = manhattanDist(points[u], points[v]);
@@ -40,21 +39,22 @@ int minEffortToConnect(vector<vector<int>>& points) {
 
 int main() {
     ios::sync_with_stdio(false);
-    cin.tie(0);
-    
+    cin.tie(nullptr);
+
     int T;
     cin >> T;
+
     while (T--) {
         int n;
         cin >> n;
         vector<vector<int>> points(n, vector<int>(2));
-        
+
         for (int i = 0; i < n; i++) {
             cin >> points[i][0] >> points[i][1];
         }
-        
+
         cout << minEffortToConnect(points) << "\n";
     }
-    
+
     return 0;
 }
