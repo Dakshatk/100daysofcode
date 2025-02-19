@@ -17,8 +17,10 @@ int minEffortToConnect(vector<vector<int>>& points) {
     int totalEffort = 0, edgesUsed = 0;
     
     while (!pq.empty() && edgesUsed < n) {
-        auto [cost, u] = pq.top();
+        pii topElement = pq.top();  // Extract the pair
         pq.pop();
+        int cost = topElement.first;
+        int u = topElement.second;
 
         if (inMST[u]) continue;
 
